@@ -1,4 +1,4 @@
 resources:
-- ./../../base
+- ./../../../base
 - node-exporter-service.yaml
 - service-nodeport.yaml
