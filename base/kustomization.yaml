@@ -1,0 +1,7 @@
+resources:
+  - configmap.yaml
+  - deployment.yaml
+  - deployment-pushgateway.yaml
+  - service.yaml
+  - service-pushgateway.yaml
+  - node-exporter-daemonset.yaml

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: prometheus-node-exporter
+  labels:
+    app: prometheus-node-exporter
+spec:
+  selector:
+    matchLabels:
+      app: prometheus-node-exporter
+  template:
+    metadata:
+      labels:
+        app: prometheus-node-exporter
+    spec:
+      containers:
+      - name: prometheus-node-exporter
+        image: quay.io/prometheus/node-exporter:latest
+        args: ["--path.rootfs=/host"]
+        volumeMounts:
+        - name: host
+          mountPath: /host
+          readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: host
+        hostPath:
+          path: /
